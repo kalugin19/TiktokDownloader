@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.textfield.TextInputLayout
 import com.kalugin19.tiktokdownloader.R
 
 class MainFragment : Fragment() {
@@ -68,6 +69,8 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val downloadBtn = view.findViewById<Button>(R.id.download)
+        val textInput = view.findViewById<TextInputLayout>(R.id.address_text_input)
+        textInput.isEndIconVisible = true
         downloadBtn.setOnClickListener {
             when {
                 ContextCompat.checkSelfPermission(
