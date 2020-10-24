@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TikTokDownloader</string>
+    <string name="paste">Paste</string>
 </resources>

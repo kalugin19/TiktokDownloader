@@ -23,7 +23,7 @@ class TikTokApiImpl : TikTokApi {
             .setDescription("Downloading...")
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
             .setDestinationInExternalPublicDir(
-                Environment.getExternalStorageState(), title
+                Environment.DIRECTORY_DOWNLOADS, title
             )
     }
 
