@@ -69,6 +69,7 @@ class BoundPlayerLifecycleHandler(
         val mediaItem: MediaItem = MediaItem.fromUri(url)
         simplePlayer?.volume = 0f
         simplePlayer?.setMediaItem(mediaItem)
+        this.useController = false
         simplePlayer?.playWhenReady = playWhenReady
         simplePlayer?.seekTo(currentWindow, playbackPosition)
         simplePlayer?.repeatMode = REPEAT_MODE_ALL

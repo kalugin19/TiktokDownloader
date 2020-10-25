@@ -7,59 +7,91 @@ import android.net.Uri
 import android.os.Environment
 import androidx.activity.result.ActivityResultLauncher
 import androidx.lifecycle.*
+import com.kalugin19.tiktokdownloader.data.ApiResult
+import com.kalugin19.tiktokdownloader.data.Video
+import com.kalugin19.tiktokdownloader.repository.TikTokRepository
+import com.kalugin19.tiktokdownloader.util.ServiceLocator
 import com.kalugin19.tiktokdownloader.util.SingleLiveEvent
 import com.kalugin19.tiktokdownloader.util.downloadManager
 import com.kalugin19.tiktokdownloader.util.getText
 import kotlinx.coroutines.*
 
-class MainViewModel(private val context: Application
+class MainViewModel(
+    private val context: Application
 ) : AndroidViewModel(context) {
 
-    private val repository: TikTokRepository = TikTokRepository()
+    private val repository: TikTokRepository = ServiceLocator.tikTokRepository
 
     lateinit var launcher: ActivityResultLauncher<String>
 
-    val addressLiveData: MutableLiveData<String> = SingleLiveEvent()
+    val addressLiveData: MutableLiveData<String?> = SingleLiveEvent()
 
     val showCancelBtnLiveData: LiveData<Boolean> = Transformations.map(addressLiveData) {
         !it.isNullOrEmpty()
     }
 
-    val videoUrlLiveData: MutableLiveData<String> = SingleLiveEvent()
-
-    val errorLiveData = MutableLiveData<String>()
-    private val successLiveData = MutableLiveData<DownloadManager.Request>()
-
-
-    init {
-        repository.downloadingRequestLiveData.observeForever {
-            if (it.isFailure) {
-                errorLiveData.value = it.exceptionOrNull()?.message ?: "Unknown error"
-            } else {
-                val pair = it.getOrNull()
-                pair?.apply {
-                    val title = first
-                    val url = second
-                    videoUrlLiveData.value = url
-                    val downloadingRequest = prepareDownloadingRequest(title, url)
-                    successLiveData.value = downloadingRequest
-                }
+    val progressLiveData: LiveData<Int> = MediatorLiveData<Int>().apply {
+        value = 0
+        addSource(repository.downloadingRequestLiveData) {
+            if (it?.isProgress == true) {
+                value = it.progress
             }
         }
+    }
 
-        addressLiveData.observeForever {
-            launcher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    private val _errorLiveData = MutableLiveData("")
+
+    val errorMediatorLiveData: LiveData<String> = MediatorLiveData<String>().apply {
+        val errorLiveData = repository.downloadingRequestLiveData
+            .map {
+                return@map if (it?.isFailure == true) {
+                    it.getExceptionOrNull()?.message ?: "Unknown error"
+                } else {
+                    ""
+                }
+            }
+
+        val observer = Observer<String> {
+            value = it
         }
-        successLiveData.observeForever {
-            context.downloadManager.enqueue(it)
+
+        addSource(errorLiveData, observer)
+        addSource(_errorLiveData, observer)
+    }
+
+    private val _videoUrlLiveData: LiveData<String?> =
+        MediatorLiveData<ApiResult<Video>?>()
+            .apply {
+                addSource(repository.downloadingRequestLiveData) {
+                    if (it?.isSuccess == true) {
+                        value = it
+                    }
+                }
+            }
+            .map {
+                val pair = it?.getOrNull()
+                pair?.url
+            }
+
+
+    val videoUrlLiveData = _videoUrlLiveData.map {
+        it ?: ""
+    }
+
+    init {
+        addressLiveData.observeForever {
+            if (it?.isNotEmpty() == true) {
+                launcher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            }
         }
     }
+
 
     fun handlePermissionsResult(isGranted: Boolean) {
         if (isGranted) {
             addressLiveData.value?.let { download(it) }
         } else {
-            errorLiveData.value = "Permissions have to be granted"
+            _errorLiveData.value = "Permissions have to be granted"
         }
     }
 
@@ -75,21 +107,10 @@ class MainViewModel(private val context: Application
         }
     }
 
-
     private fun download(url: String) {
         viewModelScope.launch {
             downloadAsync(url)
         }
-    }
-
-    private fun prepareDownloadingRequest(title: String, downloadUrl: String): DownloadManager.Request {
-        return DownloadManager.Request(Uri.parse(downloadUrl))
-                .setTitle(title)
-                .setDescription("Downloading...")
-                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                .setDestinationInExternalPublicDir(
-                        Environment.DIRECTORY_DOWNLOADS, title
-                )
     }
 
     private suspend fun downloadAsync(url: String) = withContext(Dispatchers.IO) {

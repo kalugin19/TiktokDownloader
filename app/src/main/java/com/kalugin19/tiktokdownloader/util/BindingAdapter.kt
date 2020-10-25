@@ -1,5 +1,6 @@
 package com.kalugin19.tiktokdownloader.util
 
+import androidx.core.widget.ContentLoadingProgressBar
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LifecycleOwner
 import com.google.android.exoplayer2.ui.PlayerView
@@ -18,11 +19,25 @@ inline fun TextInputLayout.endBtnListener(crossinline func: () -> Unit) {
     }
 }
 
+@BindingAdapter(value = ["app:error_text"])
+fun TextInputLayout.errorText(text: String?) {
+    if (text.isNullOrBlank()) {
+        isErrorEnabled = false
+    }
+    error = text
+}
+
 @BindingAdapter(value = ["app:url", "app:lifecycle"], requireAll = true)
 fun PlayerView.url(url: String, lifecycle: LifecycleOwner) {
     BoundPlayerLifecycleHandler(
-            url,
-            this,
-            lifecycle
+        url,
+        this,
+        lifecycle
     )
+}
+
+@BindingAdapter(value = ["app:show"])
+fun ContentLoadingProgressBar.showProgress(isShow: Boolean) {
+    isActivated = isShow
+    if (isShow) show() else hide()
 }

@@ -1,5 +1,6 @@
-package com.kalugin19.tiktokdownloader.ui.main
+package com.kalugin19.tiktokdownloader.api
 
+import com.kalugin19.tiktokdownloader.data.TikTokVideoUrl
 import com.kalugin19.tiktokdownloader.util.*
 import org.json.JSONObject
 import org.jsoup.Jsoup

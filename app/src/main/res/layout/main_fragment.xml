@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.kalugin19.tiktokdownloader.ui.main.MainViewModel" />
@@ -31,7 +33,9 @@
             app:endIconMode="custom"
             app:endIconTintMode="screen"
             app:endIconVisibility="@{viewModel.showCancelBtnLiveData}"
+            app:errorContentDescription="@{viewModel.errorMediatorLiveData}"
             app:errorEnabled="true"
+            app:error_text="@{viewModel.errorMediatorLiveData}"
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,17 +69,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/address_text_input" />
 
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/contentLoadingProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:progress="@{viewModel.progressLiveData}"
+            android:visibility="@{(viewModel.progressLiveData == 0 || viewModel.progressLiveData >= 100) ? View.GONE : View.VISIBLE }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/paste"
+            app:show="@{viewModel.progressLiveData > 0 &amp;&amp; viewModel.progressLiveData &lt; 100}" />
+
         <FrameLayout
             android:id="@+id/video_fragment_container"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/paste" />
+            app:layout_constraintTop_toBottomOf="@+id/contentLoadingProgressBar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
