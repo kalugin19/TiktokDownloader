@@ -7,6 +7,7 @@ import com.kalugin19.tiktokdownloader.api.TikTokApiImpl
 import com.kalugin19.tiktokdownloader.api.TikTokParser
 import com.kalugin19.tiktokdownloader.api.TikTokParserImpl
 import com.kalugin19.tiktokdownloader.repository.TikTokRepository
+import com.kalugin19.tiktokdownloader.repository.TikTokRepositoryImpl
 import java.io.File
 
 object ServiceLocator {
@@ -28,7 +29,7 @@ object ServiceLocator {
         )
     }
 
-    val tikTokRepository by lazy {
-        TikTokRepository(tikTokApi)
+    val tikTokRepository: TikTokRepository by lazy {
+        TikTokRepositoryImpl(tikTokApi)
     }
 }

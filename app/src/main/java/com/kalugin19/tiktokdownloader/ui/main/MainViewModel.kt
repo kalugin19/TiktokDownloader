@@ -2,17 +2,14 @@ package com.kalugin19.tiktokdownloader.ui.main
 
 import android.Manifest
 import android.app.Application
-import android.app.DownloadManager
-import android.net.Uri
-import android.os.Environment
 import androidx.activity.result.ActivityResultLauncher
 import androidx.lifecycle.*
 import com.kalugin19.tiktokdownloader.data.ApiResult
 import com.kalugin19.tiktokdownloader.data.Video
 import com.kalugin19.tiktokdownloader.repository.TikTokRepository
+import com.kalugin19.tiktokdownloader.repository.TikTokRepositoryImpl
 import com.kalugin19.tiktokdownloader.util.ServiceLocator
 import com.kalugin19.tiktokdownloader.util.SingleLiveEvent
-import com.kalugin19.tiktokdownloader.util.downloadManager
 import com.kalugin19.tiktokdownloader.util.getText
 import kotlinx.coroutines.*
 
