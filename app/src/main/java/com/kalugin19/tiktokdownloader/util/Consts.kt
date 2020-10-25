@@ -1,4 +1,4 @@
-package com.kalugin19.tiktokdownloader
+package com.kalugin19.tiktokdownloader.util
 
 const val TIK_TOK_API: String = "https://api2-16-h2.musical.ly/aweme/v1/aweme/detail/"
 

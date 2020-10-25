@@ -1,10 +1,9 @@
-package com.kalugin19.tiktokdownloader
+package com.kalugin19.tiktokdownloader.util
 
 import android.app.Application
 import android.app.DownloadManager
 import android.content.ClipboardManager
 import android.content.Context
-import androidx.core.content.ContextCompat.getSystemService
 
 
 private const val HTTP = "http://"

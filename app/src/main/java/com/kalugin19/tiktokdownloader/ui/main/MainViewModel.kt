@@ -3,15 +3,13 @@ package com.kalugin19.tiktokdownloader.ui.main
 import android.Manifest
 import android.app.Application
 import android.app.DownloadManager
-import android.content.ClipboardManager
+import android.net.Uri
+import android.os.Environment
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.arch.core.util.Function
 import androidx.lifecycle.*
-import com.kalugin19.tiktokdownloader.SingleLiveEvent
-import com.kalugin19.tiktokdownloader.TikTokDownloaderApplication
-import com.kalugin19.tiktokdownloader.downloadManager
-import com.kalugin19.tiktokdownloader.getText
+import com.kalugin19.tiktokdownloader.util.SingleLiveEvent
+import com.kalugin19.tiktokdownloader.util.downloadManager
+import com.kalugin19.tiktokdownloader.util.getText
 import kotlinx.coroutines.*
 
 class MainViewModel(private val context: Application
@@ -27,15 +25,25 @@ class MainViewModel(private val context: Application
         !it.isNullOrEmpty()
     }
 
+    val videoUrlLiveData: MutableLiveData<String> = SingleLiveEvent()
+
     val errorLiveData = MutableLiveData<String>()
-    val successLiveData = MutableLiveData<DownloadManager.Request>()
+    private val successLiveData = MutableLiveData<DownloadManager.Request>()
+
 
     init {
         repository.downloadingRequestLiveData.observeForever {
             if (it.isFailure) {
                 errorLiveData.value = it.exceptionOrNull()?.message ?: "Unknown error"
             } else {
-                successLiveData.value = it.getOrNull()
+                val pair = it.getOrNull()
+                pair?.apply {
+                    val title = first
+                    val url = second
+                    videoUrlLiveData.value = url
+                    val downloadingRequest = prepareDownloadingRequest(title, url)
+                    successLiveData.value = downloadingRequest
+                }
             }
         }
 
@@ -68,10 +76,20 @@ class MainViewModel(private val context: Application
     }
 
 
-    fun download(url: String) {
+    private fun download(url: String) {
         viewModelScope.launch {
             downloadAsync(url)
         }
+    }
+
+    private fun prepareDownloadingRequest(title: String, downloadUrl: String): DownloadManager.Request {
+        return DownloadManager.Request(Uri.parse(downloadUrl))
+                .setTitle(title)
+                .setDescription("Downloading...")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                .setDestinationInExternalPublicDir(
+                        Environment.DIRECTORY_DOWNLOADS, title
+                )
     }
 
     private suspend fun downloadAsync(url: String) = withContext(Dispatchers.IO) {

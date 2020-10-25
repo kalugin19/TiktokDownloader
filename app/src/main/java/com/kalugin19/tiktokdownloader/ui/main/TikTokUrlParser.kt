@@ -1,6 +1,6 @@
 package com.kalugin19.tiktokdownloader.ui.main
 
-import com.kalugin19.tiktokdownloader.*
+import com.kalugin19.tiktokdownloader.util.*
 import org.json.JSONObject
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
