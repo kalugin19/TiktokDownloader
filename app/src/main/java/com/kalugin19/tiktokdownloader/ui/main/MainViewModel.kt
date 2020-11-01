@@ -7,11 +7,12 @@ import androidx.lifecycle.*
 import com.kalugin19.tiktokdownloader.data.ApiResult
 import com.kalugin19.tiktokdownloader.data.Video
 import com.kalugin19.tiktokdownloader.repository.TikTokRepository
-import com.kalugin19.tiktokdownloader.repository.TikTokRepositoryImpl
 import com.kalugin19.tiktokdownloader.util.ServiceLocator
 import com.kalugin19.tiktokdownloader.util.SingleLiveEvent
 import com.kalugin19.tiktokdownloader.util.getText
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainViewModel(
     private val context: Application
@@ -71,7 +72,9 @@ class MainViewModel(
             }
 
 
-    val videoUrlLiveData = _videoUrlLiveData.map {
+    val videoUrlLiveData = _videoUrlLiveData
+            .distinctUntilChanged()
+            .map {
         it ?: ""
     }
 

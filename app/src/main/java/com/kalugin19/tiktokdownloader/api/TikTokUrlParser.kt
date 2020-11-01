@@ -7,7 +7,7 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 
 object TikTokUrlParser {
-
+//    https://vm.tiktok.com/ZSQVw2Lu/
     private const val CSS_QUERY = "link[rel=\"canonical\"]"
     private const val ATTRIBUTE_KEY = "href"
     private const val VIDEO = "video/"
@@ -18,7 +18,9 @@ object TikTokUrlParser {
     }
 
     private fun Document.toDownloadLink(): TikTokVideoUrl {
-        var url = select(CSS_QUERY).last().attr(ATTRIBUTE_KEY)
+        var url = select(CSS_QUERY)
+                .last()
+                .attr(ATTRIBUTE_KEY)
 
         if (url.isNotEmpty() && url.contains(VIDEO)) {
             url = url
