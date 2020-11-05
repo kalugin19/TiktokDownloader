@@ -42,6 +42,7 @@ object ServiceLocator {
         GlobalScope.launch(Dispatchers.Main) {
             client.func = {
                 func(it)
+                client.func = {}
             }
             webView.loadUrl(redirectedUrl)
         }

@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.kalugin19.tiktokdownloader.R
 import com.kalugin19.tiktokdownloader.databinding.MainFragmentBinding
 import com.kalugin19.tiktokdownloader.ui.videoplayer.VideoPlayerFragment
@@ -50,7 +53,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.videoUrlLiveData.observe(viewLifecycleOwner) { url ->
+        viewModel.videoUrlLiveData.observe(viewLifecycleOwner, Observer {url->
             url?.apply {
                 childFragmentManager
                     .beginTransaction()
@@ -61,6 +64,7 @@ class MainFragment : Fragment() {
                     )
                     .commit()
             }
-        }
+        })
+
     }
 }

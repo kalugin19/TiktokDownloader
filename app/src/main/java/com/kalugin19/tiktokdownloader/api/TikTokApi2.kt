@@ -24,12 +24,6 @@ class TikTokApi2(
 }
 
 private fun String.toRedirectedUrl(): String {
-    return Jsoup
-            .connect(TIK_TOK_API)
-            .followRedirects(true)
-            .data(LINK_KEY, this)
-            .execute()
-            .url()
-            .toString()
+    return "$TIK_TOK_API?$LINK_KEY=$this"
 }
 
