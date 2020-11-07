@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="url"
-            type="String" />
+            name="viewModel"
+            type="com.kalugin19.tiktokdownloader.ui.videoplayer.VideoPlayerViewModel" />
 
         <variable
             name="lifecycle"
@@ -27,6 +27,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lifecycle="@{lifecycle}"
-            app:url="@{url}" />
+            app:videoFile="@{viewModel.videoFileLiveData}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

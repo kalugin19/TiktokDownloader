@@ -1,13 +1,12 @@
 package com.kalugin19.tiktokdownloader.util
 
-import android.widget.ImageView
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LifecycleOwner
-import com.bumptech.glide.Glide
 import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.material.textfield.TextInputLayout
 import com.kalugin19.tiktokdownloader.ui.videoplayer.BoundPlayerLifecycleHandler
+import java.io.File
 
 @BindingAdapter(value = ["app:endIconVisibility"])
 fun TextInputLayout.showEndIconVisibility(endIconVisibility: Boolean) {
@@ -29,26 +28,19 @@ fun TextInputLayout.errorText(text: String?) {
     error = text
 }
 
-@BindingAdapter(value = ["app:url", "app:lifecycle"], requireAll = true)
-fun PlayerView.url(url: String, lifecycle: LifecycleOwner) {
-    BoundPlayerLifecycleHandler(
-        url,
-        this,
-        lifecycle
-    )
+@BindingAdapter(value = ["app:videoFile", "app:lifecycle"], requireAll = true)
+fun PlayerView.video(file: File?, lifecycle: LifecycleOwner) {
+    file?.let {
+        BoundPlayerLifecycleHandler(
+            file,
+            this,
+            lifecycle
+        )
+    }
 }
 
 @BindingAdapter(value = ["app:show"])
 fun ContentLoadingProgressBar.showProgress(isShow: Boolean) {
     isActivated = isShow
     if (isShow) show() else hide()
-}
-
-@BindingAdapter(value = ["image:show"])
-fun ImageView.show(url: String?) {
-    if (url != null) {
-        Glide.with(this)
-            .load(url)
-            .into(this)
-    }
 }

@@ -13,19 +13,24 @@ import com.kalugin19.tiktokdownloader.util.getText
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 
 class MainViewModel(
-    private val context: Application
+        private val context: Application
 ) : AndroidViewModel(context) {
 
     private val repository: TikTokRepository = ServiceLocator.tikTokRepository
 
     lateinit var launcher: ActivityResultLauncher<String>
 
-    val addressLiveData: MutableLiveData<String?> = SingleLiveEvent()
+    val addressLiveData: MutableLiveData<String?> = MutableLiveData()
 
     val showCancelBtnLiveData: LiveData<Boolean> = Transformations.map(addressLiveData) {
         !it.isNullOrEmpty()
+    }
+
+    val showProgressLiveData: LiveData<Boolean> = repository.downloadingRequestLiveData.map {
+        it?.isProgress ?: false
     }
 
     val progressLiveData: LiveData<Int> = MediatorLiveData<Int>().apply {
@@ -41,13 +46,13 @@ class MainViewModel(
 
     val errorMediatorLiveData: LiveData<String> = MediatorLiveData<String>().apply {
         val errorLiveData = repository.downloadingRequestLiveData
-            .map {
-                return@map if (it?.isFailure == true) {
-                    it.getExceptionOrNull()?.message ?: "Unknown error"
-                } else {
-                    ""
+                .map {
+                    return@map if (it?.isFailure == true) {
+                        it.getExceptionOrNull()?.message ?: "Unknown error"
+                    } else {
+                        ""
+                    }
                 }
-            }
 
         val observer = Observer<String> {
             value = it
@@ -57,26 +62,22 @@ class MainViewModel(
         addSource(_errorLiveData, observer)
     }
 
-    private val _videoUrlLiveData: LiveData<String?> =
-        MediatorLiveData<ApiResult<Video>?>()
-            .apply {
-                addSource(repository.downloadingRequestLiveData) {
-                    if (it?.isSuccess == true) {
-                        value = it
+    private val _videoUrlLiveData: LiveData<File?> =
+            MediatorLiveData<ApiResult<Video>?>()
+                    .apply {
+                        addSource(repository.downloadingRequestLiveData) {
+                            if (it?.isSuccess == true) {
+                                value = it
+                            }
+                        }
                     }
-                }
-            }
-            .map {
-                val pair = it?.getOrNull()
-                pair?.url
-            }
+                    .map {
+                        val pair = it?.getOrNull()
+                        pair?.file
+                    }
 
 
-    val videoUrlLiveData = _videoUrlLiveData
-            .distinctUntilChanged()
-            .map {
-        it ?: ""
-    }
+    val videoUrlLiveData = _videoUrlLiveData.distinctUntilChanged()
 
     init {
         addressLiveData.observeForever {

@@ -10,18 +10,31 @@ import com.kalugin19.tiktokdownloader.repository.TikTokRepositoryImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.io.File
 
 @SuppressLint("SetJavaScriptEnabled")
 object ServiceLocator {
 
+    private const val TIK_TOK_VIDEOS = "tik_tok_videos"
+
     private val application = TikTokDownloaderApplication.application
 
+    private val cacheDirectory by lazy {
+        application.cacheDir
+    }
+
+    private val tikTokVideosFileDir by lazy {
+        val dir = File(cacheDirectory, TIK_TOK_VIDEOS)
+        dir.mkdir()
+        dir
+    }
+
     val tikTokRepository: TikTokRepository by lazy {
-        TikTokRepositoryImpl(tikTokApi)
+        TikTokRepositoryImpl(tikTokApi, )
     }
 
     private val tikTokApi: TikTokApi by lazy {
-        TikTokApi2 { arg1, arg2 ->
+        TikTokApi2(tikTokVideosFileDir) { arg1, arg2 ->
             loadTikTokVideoUrl(arg1, arg2)
         }
     }
@@ -38,7 +51,7 @@ object ServiceLocator {
     }
 
 
-    private fun loadTikTokVideoUrl(redirectedUrl: String, func: (String) -> Unit) = run {
+    private fun loadTikTokVideoUrl(redirectedUrl: String, func: (Result<String>) -> Unit) = run {
         GlobalScope.launch(Dispatchers.Main) {
             client.func = {
                 func(it)

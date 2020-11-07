@@ -12,6 +12,7 @@ class TikTokRepositoryImpl(private val tikTokApi: TikTokApi) : TikTokRepository 
 
     override suspend fun download(url: String) {
         val apiResult = ApiResult<Video>()
+        downloadingRequestLiveData.postValue(apiResult)
         tikTokApi.download(
                 url = url,
                 onResult = {

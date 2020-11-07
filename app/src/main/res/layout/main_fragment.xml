@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:image="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -21,54 +20,35 @@
         android:background="@color/black"
         tools:context=".ui.main.MainFragment">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/address_text_input"
-            style="@style/AppTheme.EditText"
+        <include
+            android:id="@+id/url_field"
+            layout="@layout/url_field"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            app:endBtnListener="@{() -> viewModel.clearUrl()}"
-            app:endIconDrawable="@drawable/ic_cancel_24px"
-            app:endIconMode="custom"
-            app:endIconTintMode="screen"
-            app:endIconVisibility="@{viewModel.showCancelBtnLiveData}"
-            app:errorContentDescription="@{viewModel.errorMediatorLiveData}"
-            app:errorEnabled="true"
-            app:error_text="@{viewModel.errorMediatorLiveData}"
-            app:hintEnabled="false"
+            android:layout_marginBottom="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:startIconDrawable="@drawable/ic_tik_tok"
-            app:startIconTintMode="screen">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/message"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@={viewModel.addressLiveData}"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                tools:text="MainFragment" />
-        </com.google.android.material.textfield.TextInputLayout>
+            app:viewModel="@{viewModel}" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/paste"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/btn_border"
             android:onClick="@{()-> viewModel.paste()}"
+            android:visibility="@{viewModel.addressLiveData.trim().length() > 0 ? View.GONE : View.VISIBLE}"
             android:text="@string/paste"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_text_input" />
+            app:layout_constraintTop_toBottomOf="@+id/url_field" />
 
         <androidx.core.widget.ContentLoadingProgressBar
             android:id="@+id/contentLoadingProgressBar"
@@ -93,12 +73,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contentLoadingProgressBar" >
-            <ImageView
-                android:id="@+id/img"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </FrameLayout>
+            app:layout_constraintTop_toBottomOf="@+id/contentLoadingProgressBar" />
+
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="@{viewModel.showProgressLiveData ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentLoadingProgressBar" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

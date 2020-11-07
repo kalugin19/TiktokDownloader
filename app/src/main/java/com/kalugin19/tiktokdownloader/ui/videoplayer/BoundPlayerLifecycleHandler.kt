@@ -1,5 +1,6 @@
 package com.kalugin19.tiktokdownloader.ui.videoplayer
 
+import androidx.core.net.toUri
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
@@ -10,10 +11,12 @@ import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.util.Util
 
+import java.io.File
+
 class BoundPlayerLifecycleHandler(
-        private val url: String,
-        private val playerView: PlayerView,
-        lifecycleOwner: LifecycleOwner
+    private val videoFile: File,
+    private val playerView: PlayerView,
+    lifecycleOwner: LifecycleOwner
 ) : LifecycleObserver {
 
     private var simplePlayer: SimpleExoPlayer? = null
@@ -28,14 +31,14 @@ class BoundPlayerLifecycleHandler(
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun initPlayerAfter24Api() {
         if (Util.SDK_INT >= 24) {
-            playerView.initPlayer(url)
+            playerView.initPlayer(videoFile)
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun initPlayerBefore24Api() {
         if (Util.SDK_INT < 24) {
-            playerView.initPlayer(url)
+            playerView.initPlayer(videoFile)
         }
     }
 
@@ -63,10 +66,13 @@ class BoundPlayerLifecycleHandler(
         }
     }
 
-    private fun PlayerView.initPlayer(url: String) {
-        simplePlayer = SimpleExoPlayer.Builder(playerView.context).build()
+    private fun PlayerView.initPlayer(file: File) {
+        simplePlayer = SimpleExoPlayer.Builder(playerView.context)
+            .setUseLazyPreparation(true)
+            .build()
         player = simplePlayer
-        val mediaItem: MediaItem = MediaItem.fromUri(url)
+
+        val mediaItem: MediaItem = MediaItem.fromUri(file.toUri())
         simplePlayer?.volume = 0f
         simplePlayer?.setMediaItem(mediaItem)
         this.useController = false
