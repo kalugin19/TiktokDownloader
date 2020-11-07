@@ -14,48 +14,61 @@ import com.kalugin19.tiktokdownloader.ui.videoplayer.VideoPlayerFragment
 class MainFragment : Fragment() {
 
     companion object {
+        private const val TAG = "VideoFragment"
+
         fun newInstance() = MainFragment()
     }
 
     private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(
-                this,
-                ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
-        ).get(
-                MainViewModel::class.java
-        )
+        requireActivity()
+            .application
+            .let {
+                ViewModelProvider.AndroidViewModelFactory.getInstance(it)
+            }
+            .let { factory ->
+                ViewModelProvider(this, factory)
+            }
+            .get(MainViewModel::class.java)
     }
 
     private val launcher = this.registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
+        ActivityResultContracts.RequestPermission()
     ) {
         viewModel.handlePermissionsResult(it)
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         viewModel.launcher = launcher
         return MainFragmentBinding.inflate(inflater, container, false)
-                .run {
-                    viewModel = this@MainFragment.viewModel
-                    lifecycleOwner = this@MainFragment
-                    root
-                }
+            .run {
+                viewModel = this@MainFragment.viewModel
+                lifecycleOwner = this@MainFragment
+                root
+            }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.videoUrlLiveData.observe(viewLifecycleOwner) {
+        if (savedInstanceState == null){
             childFragmentManager
-                    .beginTransaction()
-                    .replace(
-                            R.id.video_fragment_container,
-                            VideoPlayerFragment.newInstance(it),
-                            "VideoFragment"
-                    )
-                    .commit()
+                .beginTransaction()
+                .replace(
+                    R.id.video_fragment_container,
+                    VideoPlayerFragment.newInstance(),
+                    TAG
+                )
+                .commit()
         }
+
+        viewModel.videoUrlLiveData.observe(viewLifecycleOwner, { video ->
+            video?.apply {
+                val videoFragment: VideoPlayerFragment = childFragmentManager.findFragmentByTag(TAG) as VideoPlayerFragment
+                videoFragment.showVideo(this)
+            }
+        })
+
     }
 }
