@@ -13,20 +13,26 @@
             type="androidx.lifecycle.LifecycleOwner" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.google.android.exoplayer2.ui.PlayerView
             app:resize_mode="fixed_width"
             android:id="@+id/player"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lifecycle="@{lifecycle}"
             app:videoFile="@{viewModel.videoFileLiveData}" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            layout="@layout/share_pannel"/>
+    </FrameLayout>
 </layout>

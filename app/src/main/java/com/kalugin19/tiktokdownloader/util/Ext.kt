@@ -6,6 +6,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.net.Uri
 import android.provider.MediaStore
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import java.io.File
 
 

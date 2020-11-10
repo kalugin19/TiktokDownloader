@@ -43,7 +43,7 @@ class TikTokApi2(
     }
 
     private fun download(fileName: String, link: String): File {
-        return File(videoDirectory, "$fileName.$MP4_EXT").apply {
+        return File(videoDirectory, "$fileName$MP4_EXT").apply {
             URL(link).openStream().use { input ->
                 FileOutputStream(this).use { output ->
                     input.copyTo(output)

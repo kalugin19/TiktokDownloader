@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="84d259fd-009e-43ac-bf07-6ef09a0065be" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/api/TikTokApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/api/TikTokApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/api/TikTokApi2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/api/TikTokApi2.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/ui/main/MainFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/ui/main/MainFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/util/Ext.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/util/Ext.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/main_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main_fragment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/video_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/video_fragment.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_4_XL_API_27]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="valueResourceFile" />
+        <option value="Kotlin Object" />
+        <option value="resourceFile" />
+        <option value="Kotlin Enum" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin File" />
+        <option value="layoutResourceFile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1j2bp0Ciat6lcbj8iG333vNkp90" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_XL_API_27" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-11-06T23:08:27.196Z" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android-custom-viewC:/Users/kalug/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-ui/2.12.0/bc552b34964f17f1d86448eb0a62f69f178c5349/exoplayer-ui-2.12.0-sources.jar!/com/google/android/exoplayer2/ui/PlayerView.java_SELECTED" value="PlayerView" />
+    <property name="android-custom-viewC:/Users/kalug/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/textfield/TextInputLayout.java_SELECTED" value="TextInputLayout" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox" />
+    <property name="multi-representation-previewC:/Users/kalug/.gradle/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-ui/2.12.0/bc552b34964f17f1d86448eb0a62f69f178c5349/exoplayer-ui-2.12.0-sources.jar!/com/google/android/exoplayer2/ui/PlayerView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/kalug/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.2.1/37d55d5141066b3d118d24232fa7025b65eb3a74/material-1.2.1-sources.jar!/com/google/android/material/textfield/TextInputLayout.java_selected" value="Custom views" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kalug\YandexDisk-kalugin.19@yandex.ru\tiktok\TiktokDownloader\app" />
+      <recent name="C:\Users\kalug\YandexDisk-kalugin.19@yandex.ru\tiktok\TiktokDownloader\app\src\main\java\com\kalugin19\tiktokdownloader\util" />
+      <recent name="C:\Users\kalug\YandexDisk-kalugin.19@yandex.ru\tiktok\TiktokDownloader\app\src\main\res\color" />
+      <recent name="C:\Users\kalug\AndroidStudioProjects\TikTokDownloader\app\src\main\java\com\kalugin19\tiktokdownloader" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.kalugin19.tiktokdownloader.data" />
+      <recent name="com.kalugin19.tiktokdownloader.api" />
+      <recent name="com.kalugin19.tiktokdownloader.repository" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kalug\YandexDisk-kalugin.19@yandex.ru\tiktok\TiktokDownloader" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="TikTokDownloader.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="84d259fd-009e-43ac-bf07-6ef09a0065be" name="Default Changelist" comment="" />
+      <created>1603005312744</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603005312744</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="200" y="110" key="#PSD" timestamp="1603488330254">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="200" y="110" key="#PSD/0.0.1366.728@0.0.1366.728" timestamp="1603488330254" />
+    <state x="662" y="227" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604771878588">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="662" y="227" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1604771878588" />
+    <state x="474" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1604601134470">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="474" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1604601134470" />
+    <state x="462" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603655867755">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="462" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1603655867755" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604766411065">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1604766411065" />
+    <state x="450" y="119" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1603651279167">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="450" y="119" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1603651279167" />
+    <state x="438" y="67" key="#xdebugger.evaluate" timestamp="1603640092536">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="438" y="67" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1603640092536" />
+    <state x="430" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1603618571799">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="430" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1603618571799" />
+    <state x="238" y="114" width="1046" height="503" key="AVDManager" timestamp="1604786973015">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="238" y="114" width="1046" height="503" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1604786973015" />
+    <state x="586" y="133" key="FileChooserDialogImpl" timestamp="1604772091243">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="586" y="133" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604772091243" />
+    <state width="923" height="250" key="GridCell.Tab.0.bottom" timestamp="1604788353793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="923" height="250" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604788353793" />
+    <state width="923" height="250" key="GridCell.Tab.0.center" timestamp="1604788353793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="923" height="250" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1604788353793" />
+    <state width="923" height="250" key="GridCell.Tab.0.left" timestamp="1604788353793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="923" height="250" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1604788353793" />
+    <state width="923" height="250" key="GridCell.Tab.0.right" timestamp="1604788353793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="923" height="250" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604788353793" />
+    <state width="923" height="250" key="GridCell.Tab.1.bottom" timestamp="1604788353793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="923" height="250" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604788353793" />
+    <state width="923" height="250" key="GridCell.Tab.1.center" timestamp="1604788353793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="923" height="250" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1604788353793" />
+    <state width="923" height="250" key="GridCell.Tab.1.left" timestamp="1604788353793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="923" height="250" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1604788353793" />
+    <state width="923" height="250" key="GridCell.Tab.1.right" timestamp="1604788353793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="923" height="250" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1604788353793" />
+    <state x="184" y="9" key="SettingsEditor" timestamp="1604766787705">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604766787705" />
+    <state width="450" height="306" key="XDebugger.FullValuePopup" timestamp="1604255314225">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="450" height="306" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1604255314225" />
+    <state x="0" y="104" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1604254880412">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="104" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.728@0.0.1366.728" timestamp="1604254880412" />
+    <state x="238" y="556" width="873" height="433" key="dock-window-1" timestamp="1603482492235">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="238" y="556" width="873" height="433" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1603482492235" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1604787477483">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1604787477483" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1604705242067">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1604705242067" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.fragment/fragment/1.3.0-beta01/f5bd56eeb1cee6b3a3a037c2b96f5b646e885a7a/fragment-1.3.0-beta01-sources.jar!/androidx/fragment/app/Fragment.java</url>
+          <line>1602</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.fragment/fragment/1.3.0-beta01/f5bd56eeb1cee6b3a3a037c2b96f5b646e885a7a/fragment-1.3.0-beta01-sources.jar!/androidx/fragment/app/Fragment.java</url>
+          <line>1601</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.fragment/fragment/1.3.0-beta01/f5bd56eeb1cee6b3a3a037c2b96f5b646e885a7a/fragment-1.3.0-beta01-sources.jar!/androidx/fragment/app/FragmentActivity.java</url>
+          <line>746</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/api/TikTokApi2.kt</url>
+          <line>39</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/repository/TikTokRepositoryImpl.kt</url>
+          <line>18</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/repository/TikTokRepositoryImpl.kt</url>
+          <line>21</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/repository/TikTokRepositoryImpl.kt</url>
+          <line>24</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/api/TikTokApi2.kt</url>
+          <line>38</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/ui/main/MainFragment.kt</url>
+          <line>75</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/ui/videoplayer/VideoPlayerFragment.kt</url>
+          <line>42</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/ui/main/MainFragment.kt</url>
+          <line>83</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kalugin19/tiktokdownloader/ui/main/MainFragment.kt</url>
+          <line>82</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="((org.jsoup.nodes.Element.NodeList)((Document)((Element)((NodeList)((Document)this).childNodes).get(1)).parentNode).childNodes).get(1)" custom="org.jsoup.nodes.Element.NodeList,org.jsoup.nodes.Document,org.jsoup.nodes.Element" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

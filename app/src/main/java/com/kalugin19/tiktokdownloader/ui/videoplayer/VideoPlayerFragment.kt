@@ -33,8 +33,8 @@ class VideoPlayerFragment : Fragment() {
         return VideoFragmentBinding.inflate(inflater, container, false)
                 .apply {
                     lifecycle = this@VideoPlayerFragment
-                    viewModel = videoViewModel
                     lifecycleOwner = this@VideoPlayerFragment
+                    viewModel = videoViewModel
                 }
                 .root
     }
